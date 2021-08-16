@@ -59,6 +59,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+
+  Closure is when an inner function reaches outside of itself to an outer function to grab a piece of information defined in the outer function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -80,8 +83,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  Closure is used when the nested function reaches out to the personalDice function to grab "Dan" as the argument for the name parameter. I can tell because the name parameter is defined in the personalDice function and only called on by the nested function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  The argument "Dan" is always the same, so the ${name} parameter will remain unchanged. The change is in the newRoll variable that is a randomly generated number between 0-6 each time.
+
 c. What is the lexical scope of `newRoll`? 
+
+  The lexical scope of `newRoll` is the nested function without a name.
 
 
 ### Task 3 - Stretch Goals
