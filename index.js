@@ -69,7 +69,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(/*Code Here*/){
-    /*Code Here*/
+    return Math.round(Math.random() * 2);
 }
 
 
@@ -87,9 +87,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 // parameters are going to be inning callback from task 2 and number of innings 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningcb, innings){
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < innings; i++){
+    homeScore = homeScore + inningcb();
+    awayScore = awayScore + inningcb();
+  }
+  return {
+    Home: homeScore,
+    Away: awayScore
+  };
 }
+
+console.log(finalScore(inning, 4));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -97,9 +108,11 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
   //pass in inning from task 2 , 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-  // return object with score for home and away 
+function getInningScore(inningcb) {
+  return {
+    Home: inningcb(),
+    Away: inningcb()
+  };
 }
 
 
@@ -144,11 +157,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 // get inning from task 2 and inning score from task 4, also number of innings
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-  //return an array 
+function scoreboard(inningScorecb, inningcb, inningsNumber) {
+  const gameTotal = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < inningsNumber; i++){
+  const currentScore = inningScorecb(inningcb);
+  let homeScore = homeScore + currentScore.Home;
+  let awayScore = awayScore + currentScore.Away;
+  gameTotal.push(`Inning ${i + 1}: Away ${homeScore} - Home ${awayScore}`);
+  }
+  if (homeScore === awayScore){
+    console.log(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
+  } else {
+    console.log(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+  }
+  return gameTotal;
 }
 
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
