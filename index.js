@@ -80,7 +80,7 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-
+// parameters are going to be inning callback from task 2 and number of innings 
 function finalScore(/*code Here*/){
   /*Code Here*/
 }
@@ -90,8 +90,10 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
+  //pass in inning from task 2 , 
 function getInningScore(/*Your Code Here */) {
   /*Your Code Here */
+  // return object with score for home and away 
 }
 
 
@@ -135,9 +137,10 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-
+// get inning from task 2 and inning score from task 4, also number of innings
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
+  //return an array 
 }
 
 
